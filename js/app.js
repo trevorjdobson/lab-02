@@ -80,17 +80,17 @@ function questionFive(user){
   currentAnswer = prompt(`${user}, Do I take the ferry to work?`).toLowerCase();
 
   return currentAnswer === 'yes' || currentAnswer === 'y' ? (
-      totalCorrect++,
-      alert(`Good Job, I do take the ferry to work.  You have answered ${totalCorrect} correct.`),
-      console.log(`The user has ${totalCorrect} right`),
-      questionSix(user)
-      )
+    totalCorrect++,
+    alert(`Good Job, I do take the ferry to work.  You have answered ${totalCorrect} correct.`),
+    console.log(`The user has ${totalCorrect} right`),
+    questionSix(user)
+  )
     : currentAnswer === 'no' || currentAnswer === 'n' ? (
       alert(`Wrong, I do take the ferry to work.  You have answered ${totalCorrect} correct.`),
       console.log(`The user has ${totalCorrect} right`),
       questionSix(user)
-      )
-    : questionFive(user);
+    )
+      : questionFive(user);
 }
 
 let guesses = 3;
