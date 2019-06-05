@@ -95,11 +95,11 @@ function questionFive(user){
 
 let guesses = 4;
 function questionSix(user){
-  currentAnswer = prompt(`${user}, How many years did I serve in the Army?`).toLowerCase();
-  
+  currentAnswer = parseInt(prompt(`${user}, How many years did I serve in the Army?`));
   let correctAnswer =  4;
+
   if(guesses <= 0){
-    alert(`No more guesses, You have answered ${totalCorrect} correct.`);
+    alert(`No more guesses, I served 4 years in the Army. You have answered ${totalCorrect} correct.`);
     questionSeven(user);
   }else{
     if(currentAnswer < correctAnswer){
@@ -110,13 +110,48 @@ function questionSix(user){
       guesses--;
       alert(`Too high, try again.  You have ${guesses} left.`);
       questionSix(user);
-    }else{
+    }else if(currentAnswer === correctAnswer){
       totalCorrect++;
       alert(`You're right! You have now answerwed ${totalCorrect} correct.`);
+      questionSeven(user);
+    }else{
+      alert(`This needs to be ansered in number form.  You have ${guesses} remaining.`);
+      questionSix(user);
     }
   }
+
+}
+
+let tries = 6;
+function questionSeven(user){
+  let answersArr = ['canada', 'mexico', 'taiwan', 'philippines', 'afghanistan', 'kyrgyzstan'];
+  let isCorrect = false;
+  currentAnswer = prompt(`${user}, Name a country other than the U.S. that I've been to.`).toLowerCase();
+
+  if(tries > 0){
+    tries--;
+    for(var i=0; i < answersArr.length; i++){
+      if(answersArr[i] === currentAnswer){
+        isCorrect = true;
+      }
+    }
+  }
+
+  if(isCorrect === true){
+    alert('good job!');
+    questionEight(user);
+  }else if(isCorrect === false && tries>0){
+    alert('try again');
+    questionSeven(user);
+  }else{
+    alert('out of tries');
+    questionEight(user);
+  }
+
+}
+
+function questionEight(user){
+  alert(`You are done with my guessing game.  ${user} you got ${totalCorrect} answers right`);
 }
 
 readyToBegin(user);
-
-
