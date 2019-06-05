@@ -138,13 +138,14 @@ function questionSeven(user){
   }
 
   if(isCorrect === true){
-    alert('good job!');
+    totalCorrect++;
+    alert(`Good job! The correct answers are; canada, mexico, taiwan, philippines, afghanistan, kyrgyzstan.  You have answered ${totalCorrect} right`);
     questionEight(user);
   }else if(isCorrect === false && tries>0){
-    alert('try again');
+    alert(`Try again, you have ${tries} remaining.`);
     questionSeven(user);
   }else{
-    alert('out of tries');
+    alert(`Sorry you're out of tries. The correct answers are; canada, mexico, taiwan, philippines, afghanistan, kyrgyzstan. You have answered ${totalCorrect} right`);
     questionEight(user);
   }
 
