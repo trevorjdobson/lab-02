@@ -1,12 +1,13 @@
 'use strict';
 
+
 let user = prompt('Hi! Welcome to my page, my name is Trevor Dobson.  What is your name?');
 console.log('The user\'s, name is', user);
 
 let currentAnswer =  'no';
 let totalCorrect = 0;
 
-function readyToBegin(user){
+var readyToBegin = function(user){
   currentAnswer = prompt(`Are you ready to begin ${user}`).toLowerCase();
 
   if(currentAnswer === 'yes' || currentAnswer === 'y'){
@@ -20,9 +21,9 @@ function readyToBegin(user){
     alert('Please answer with a yes or no');
     readyToBegin(user);
   }
-}
+};
 
-function questionTwo(user){
+var questionTwo = function(user){
   currentAnswer = prompt(`${user}, Do you think I have a dog?`).toLowerCase();
 
   if(currentAnswer === 'yes' || currentAnswer === 'y'){
@@ -38,9 +39,9 @@ function questionTwo(user){
     alert('Please answer with a yes or no');
     questionTwo(user);
   }
-}
+};
 
-function questionThree(user){
+var questionThree =function(user){
   currentAnswer = prompt(`${user}, Do you think I am originally from Washington?`).toLowerCase();
 
   if(currentAnswer === 'yes' || currentAnswer === 'y'){
@@ -56,9 +57,9 @@ function questionThree(user){
     alert('Please answer with a yes or no');
     questionThree(user);
   }
-}
+};
 
-function questionFour(user){
+var questionFour = function (user){
   currentAnswer = prompt(`${user}, Do you think I have a child?`).toLowerCase();
 
   if(currentAnswer === 'yes' || currentAnswer === 'y'){
@@ -74,27 +75,27 @@ function questionFour(user){
     alert('Please answer with a yes or no');
     questionFive(user);
   }
-}
+};
 
-function questionFive(user){
+var questionFive = function (user){
   currentAnswer = prompt(`${user}, Do I take the ferry to work?`).toLowerCase();
 
   return currentAnswer === 'yes' || currentAnswer === 'y' ? (
-      totalCorrect++,
-      alert(`Good Job, I do take the ferry to work.  You have answered ${totalCorrect} correct.`),
-      console.log(`The user has ${totalCorrect} right`),
-      questionSix(user)
-      )
+    totalCorrect++,
+    alert(`Good Job, I do take the ferry to work.  You have answered ${totalCorrect} correct.`),
+    console.log(`The user has ${totalCorrect} right`),
+    questionSix(user)
+  )
     : currentAnswer === 'no' || currentAnswer === 'n' ? (
       alert(`Wrong, I do take the ferry to work.  You have answered ${totalCorrect} correct.`),
       console.log(`The user has ${totalCorrect} right`),
       questionSix(user)
-      )
-    : questionFive(user);
-}
+    ): questionFive(user);
+};
 
 let guesses = 3;
-function questionSix(user){
+
+var questionSix = function (user){
   currentAnswer = parseInt(prompt(`${user}, How many years did I serve in the Army?`));
   let correctAnswer =  4;
 
@@ -120,10 +121,11 @@ function questionSix(user){
     }
   }
 
-}
+};
 
 let tries = 6;
-function questionSeven(user){
+
+var questionSeven = function (user){
   let answersArr = ['canada', 'mexico', 'taiwan', 'philippines', 'afghanistan', 'kyrgyzstan'];
   let isCorrect = false;
   currentAnswer = prompt(`${user}, Name a country other than the U.S. that I've been to.`).toLowerCase();
@@ -149,10 +151,10 @@ function questionSeven(user){
     questionEight(user);
   }
 
-}
+};
 
-function questionEight(user){
+var questionEight = function (user){
   alert(`You are done with my guessing game.  ${user} you got ${totalCorrect} answers right`);
-}
+};
 
 readyToBegin(user);
