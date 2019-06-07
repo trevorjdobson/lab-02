@@ -1,6 +1,7 @@
 body{
-    background: grey;
+    background: rgb(241, 237, 237);
 }
-p{
+#container{
     border-style: double;
+    padding: 20px;
 }

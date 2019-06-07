@@ -93,11 +93,13 @@ var questionFive = function (user){
     ): questionFive(user);
 };
 
-let guesses = 3;
+let guesses = 4;
 
 var questionSix = function (user){
-  currentAnswer = parseInt(prompt(`${user}, How many years did I serve in the Army?`));
   let correctAnswer =  4;
+  if(guesses>0){
+    currentAnswer = parseInt(prompt(`${user}, How many years did I serve in the Army?`));
+  }
 
   if(guesses <= 0){
     alert(`No more guesses, I served 4 years in the Army. You have answered ${totalCorrect} correct.`);
@@ -105,18 +107,18 @@ var questionSix = function (user){
   }else{
     if(currentAnswer < correctAnswer){
       guesses--;
-      alert(`Too low, try again.  You have ${guesses + 1} left.`);
+      alert(`Too low.  You have ${guesses} guesses left.`);
       questionSix(user);
     }else if(currentAnswer > correctAnswer){
       guesses--;
-      alert(`Too high, try again.  You have ${guesses + 1} left.`);
+      alert(`Too high.  You have ${guesses} guesses left.`);
       questionSix(user);
     }else if(currentAnswer === correctAnswer){
       totalCorrect++;
       alert(`You're right! You have now answerwed ${totalCorrect} correct.`);
       questionSeven(user);
     }else{
-      alert(`This needs to be ansered in number form.  You have ${guesses + 1} remaining.`);
+      alert(`This needs to be ansered in number form.  You have ${guesses} remaining.`);
       questionSix(user);
     }
   }
